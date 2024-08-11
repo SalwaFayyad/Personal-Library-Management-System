@@ -300,10 +300,22 @@ namespace Project2
                 Console.WriteLine($"An error occurred: {ex.Message}");
             }
         }
-        /// <summary>
-        /// Menus
-        /// </summary>
-        public void updateMenu()
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+        public static void LoadMenu()
+        {
+            Console.WriteLine(" 1] Add Book to the Library");
+            Console.WriteLine(" 2] View All Books in the Library");
+            Console.WriteLine(" 3] Update Book Details");
+            Console.WriteLine(" 4] Delete a Book");
+            Console.WriteLine(" 5] Search for a Book");
+            Console.WriteLine(" 6] Save Library Data");
+            Console.WriteLine(" 7] Exit");
+            Console.WriteLine("................................");
+            Console.Write("Enter the Choice : ");
+        }
+        public static void updateMenu()
         {
             Console.WriteLine("1] Update Author Name.");
             Console.WriteLine("2] Update Book Title.");
@@ -314,7 +326,7 @@ namespace Project2
 
         }
 
-        public void searchMenu()
+        public static void searchMenu()
         {
             Console.WriteLine("1] Search by Author Name.");
             Console.WriteLine("2] Search by Title Name.");
@@ -324,18 +336,22 @@ namespace Project2
         public static string GenreMenu()
         {
             Console.WriteLine("Available Genres:");
-            foreach (var genre in GenreDic)
+            foreach (var genre in Library.GenreDic)
             {
                 Console.WriteLine($"{genre.Key}. {genre.Value}");
             }
             Console.Write("\nEnter the number corresponding to your desired genre: ");
             int selectedGenreKey;
-            while (!int.TryParse(Console.ReadLine(), out selectedGenreKey) || !GenreDic.ContainsKey(selectedGenreKey))
+            while (!int.TryParse(Console.ReadLine(), out selectedGenreKey) || !Library.GenreDic.ContainsKey(selectedGenreKey))
             {
                 Console.Write("Invalid input. Please enter a valid number from the list : ");
             }
-            return GenreDic[selectedGenreKey];
+            return Library.GenreDic[selectedGenreKey];
         }
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
         public static bool checkYear(int year)
         {
@@ -395,7 +411,8 @@ namespace Project2
             return bookAutohr;
         }
 
-        public static string getValidTitle() {
+        public static string getValidTitle()
+        {
             string bookTitle;
             do
             {
@@ -410,6 +427,7 @@ namespace Project2
 
             return bookTitle;
         }
+
     }
 
 }

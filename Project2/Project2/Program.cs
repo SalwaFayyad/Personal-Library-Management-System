@@ -53,7 +53,6 @@ namespace Project2
                 }
             }
         }
-
         public static void LoadMenu()
         {
             Console.WriteLine(" 1] Add Book to the Library");
@@ -66,9 +65,5 @@ namespace Project2
             Console.WriteLine("................................");
             Console.Write("Enter the Choice : ");
         }
-
-
-        
-
     }
 }
