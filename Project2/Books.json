@@ -1,0 +1,44 @@
+[
+  {
+    "Title": "To Kill a Mockingbird",
+    "Author": "Salwa",
+    "Genre": "Fiction",
+    "YearOfPublication": 1960,
+    "Summary": "A novel about the serious issues of rape and racial inequality."
+  },
+  {
+    "Title": "To Kill a Mockingbird",
+    "Author": "Salwa",
+    "Genre": "Fiction",
+    "YearOfPublication": 1960,
+    "Summary": "A novel about the serious issues of rape and racial inequality."
+  },
+  {
+    "Title": "1984",
+    "Author": "George Orwell",
+    "Genre": "Dystopian",
+    "YearOfPublication": 1949,
+    "Summary": "A novel that presents a dystopian future under a totalitarian regime."
+  },
+  {
+    "Title": "The Great Gatsby",
+    "Author": "F. Scott Fitzgerald",
+    "Genre": "Classic",
+    "YearOfPublication": 1925,
+    "Summary": "A novel that explores themes of decadence and excess in 1920s America."
+  },
+  {
+    "Title": "Pride and Prejudice",
+    "Author": "Jane Austen",
+    "Genre": "Romance",
+    "YearOfPublication": 1813,
+    "Summary": "A classic novel that deals with issues of class, marriage, and morality."
+  },
+  {
+    "Title": "The Catcher in the Rye",
+    "Author": "J.D. Salinger",
+    "Genre": "Fiction",
+    "YearOfPublication": 1951,
+    "Summary": "A novel that explores complex issues of identity, belonging, and alienation."
+  }
+]
