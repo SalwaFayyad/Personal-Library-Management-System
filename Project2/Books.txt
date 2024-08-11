@@ -1,12 +1,11 @@
-
-
-...............................................WELCOME TO SALWA's LIBRARY...............................................
+--------------------------------------------------------------------------------------------------------------------
+                                                  WELCOME TO SALWA's LIBRARY
 --------------------------------------------------------------------------------------------------------------------
  Book [ 1 ]
 --------------------------------------------------------------------------------------------------------------------
 Book's Author : Salwa
 Title : To Kill a Mockingbird
-Genre : 
+Genre : Fiction
 Year of Publication : 1960
 Summary : A novel about the serious issues of rape and racial inequality.
 --------------------------------------------------------------------------------------------------------------------
@@ -14,7 +13,7 @@ Summary : A novel about the serious issues of rape and racial inequality.
 --------------------------------------------------------------------------------------------------------------------
 Book's Author : Salwa
 Title : To Kill a Mockingbird
-Genre : 
+Genre : Fiction
 Year of Publication : 1960
 Summary : A novel about the serious issues of rape and racial inequality.
 --------------------------------------------------------------------------------------------------------------------
@@ -22,7 +21,7 @@ Summary : A novel about the serious issues of rape and racial inequality.
 --------------------------------------------------------------------------------------------------------------------
 Book's Author : George Orwell
 Title : 1984
-Genre : 
+Genre : Dystopian
 Year of Publication : 1949
 Summary : A novel that presents a dystopian future under a totalitarian regime.
 --------------------------------------------------------------------------------------------------------------------
@@ -30,7 +29,7 @@ Summary : A novel that presents a dystopian future under a totalitarian regime.
 --------------------------------------------------------------------------------------------------------------------
 Book's Author : F. Scott Fitzgerald
 Title : The Great Gatsby
-Genre : 
+Genre : Classic
 Year of Publication : 1925
 Summary : A novel that explores themes of decadence and excess in 1920s America.
 --------------------------------------------------------------------------------------------------------------------
@@ -38,7 +37,7 @@ Summary : A novel that explores themes of decadence and excess in 1920s America.
 --------------------------------------------------------------------------------------------------------------------
 Book's Author : Jane Austen
 Title : Pride and Prejudice
-Genre : 
+Genre : Romance
 Year of Publication : 1813
 Summary : A classic novel that deals with issues of class, marriage, and morality.
 --------------------------------------------------------------------------------------------------------------------
@@ -46,22 +45,7 @@ Summary : A classic novel that deals with issues of class, marriage, and moralit
 --------------------------------------------------------------------------------------------------------------------
 Book's Author : J.D. Salinger
 Title : The Catcher in the Rye
-Genre : 
+Genre : Fiction
 Year of Publication : 1951
 Summary : A novel that explores complex issues of identity, belonging, and alienation.
---------------------------------------------------------------------------------------------------------------------
- Book [ 7 ]
---------------------------------------------------------------------------------------------------------------------
-Book's Author : Salwa
-Title : Princess and Monster
-Genre : Fantasy
-Year of Publication : 2024
-Summary : asdfgh
---------------------------------------------------------------------------------------------------------------------
- Book [ 8 ]
---------------------------------------------------------------------------------------------------------------------
-Book's Author : dd
-Title : fff
-Genre : Others
-Year of Publication : 2021
-Summary : 20fgh
+

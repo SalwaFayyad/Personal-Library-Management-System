@@ -7,15 +7,15 @@ namespace Project2
     {
         public string Title { get; set; }
         public string Author { get; set; }
-        public string SelectedGenre { get; set; } 
+        public string Genre { get; set; } 
         public int YearOfPublication { get; set; }
         public string Summary { get; set; }
 
-        public Book(string title, string author, string selectedGenre, int yearOfPublication, string summary = "")
+        public Book(string title, string author, string genre, int yearOfPublication, string summary = "")
         {
             Title = title;
             Author = author;
-            SelectedGenre = selectedGenre;
+            Genre = genre;
             YearOfPublication = yearOfPublication;
             Summary = summary;
         }
@@ -25,7 +25,7 @@ namespace Project2
             Console.WriteLine("................................");
             Console.WriteLine(" Book's Author : " + Author);
             Console.WriteLine(" Title : " + Title);
-            Console.WriteLine(" Genre : " + SelectedGenre);
+            Console.WriteLine(" Genre : " + Genre);
             Console.WriteLine(" Year of Publication : " + YearOfPublication);
             Console.WriteLine(" Summary : " + Summary);
             Console.WriteLine("................................\n");

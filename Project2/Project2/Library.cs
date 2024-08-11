@@ -11,7 +11,8 @@ namespace Project2
     public class Library
     {
         public List<Book> booksList;
-        public static Dictionary<int, string> Genre = new Dictionary<int, string>()
+
+        public static Dictionary<int, string> GenreDic = new Dictionary<int, string>()
         {
             {1, "Romantic"},
             {2, "Fantasy"},
@@ -40,27 +41,19 @@ namespace Project2
         public void addBook()
         {
             Console.WriteLine("Enter Book's Details you Want Add :)");
-            Console.Write("Book's Author : ");
-            var bookAutohr = Console.ReadLine();
-            Console.Write("Book's Title : ");
-            var bookTitle = Console.ReadLine();
+            string bookAuthor = getValidAuthor();
+  
+            string bookTitle = getValidTitle();
+
             Console.Write("Book's Genre :");
             var bookGenre = GenreMenu();
 
+            int bookYear = GetValidYearInput();
 
-            Console.Write("Year of Publication : ");
-            var bookYear = Console.ReadLine();
-
-            while (Int32.Parse(bookYear) > 2024)
-            {
-                Console.WriteLine("Not Valid Year");
-                Console.Write("Year of Publication : ");
-                bookYear = Console.ReadLine();
-            }
             Console.Write("Book's Summary : ");
             var bookSummary = Console.ReadLine();
 
-            Book book1 = new Book(bookTitle, bookAutohr, bookGenre, Int32.Parse(bookYear), bookSummary);
+            Book book1 = new Book(bookTitle, bookAuthor, bookGenre,bookYear, bookSummary);
             booksList.Add(book1);
             Console.WriteLine("................................");
             Console.WriteLine("Book added successfully.");
@@ -103,84 +96,68 @@ namespace Project2
             Console.WriteLine("------Updating Book ... loading");
             foreach (var bookTitle in booksList)
             {
-                Console.WriteLine("--"+ bookTitle.Title);
+                Console.WriteLine("--" + bookTitle.Title);
             }
             Console.WriteLine("................................");
             Console.WriteLine("Which book do you want to update?");
 
-            
             var titlebook = Console.ReadLine();
-            Book BooktoUpdate = null;
-            bool found = false;
+            Book bookToUpdate = booksList.FirstOrDefault(b => b.Title.Equals(titlebook, StringComparison.OrdinalIgnoreCase));
 
-            while (!found)
+            if (bookToUpdate != null)
             {
-                foreach (var bookTitle in booksList)
+                Console.WriteLine("Book Found: ");
+                bookToUpdate.toString();
+
+                bool exit = false;
+                while (!exit)
                 {
-                    if (bookTitle.Title.Equals(titlebook, StringComparison.OrdinalIgnoreCase))
+                    updateMenu();
+                    switch (Console.ReadLine())
                     {
-                        Console.WriteLine("Book Founded : ");
-                        BooktoUpdate = bookTitle;
-                        bookTitle.toString();
-                        bool exit = false;
-                        while (!exit)
-                        {
-                            updateMenu();
-                            found = true;
-                            switch (Console.ReadLine())
-                            {
-                                case "1":
-                                    Console.WriteLine("Enter new author name.");
-                                    string newAuthor = Console.ReadLine();
-                                    bookTitle.Author = newAuthor;
-                                    break;
+                        case "1":
+                            string newAuthor = getValidAuthor();
+                            bookToUpdate.Author = newAuthor;
+                            break;
 
-                                case "2":
-                                    Console.WriteLine("Enter new Title name.");
-                                    string newTitle = Console.ReadLine();
-                                    bookTitle.Title = newTitle;
-                                    break;
-                                case "3":
-                                    Console.WriteLine("Enter new Genre.");
-                                    string newGenre = Console.ReadLine();
-                                    bookTitle.SelectedGenre = newGenre;
-                                    break;
-                                case "4":
-                                    Console.WriteLine("Enter new Year of Publication.");
-                                    string newYear = Console.ReadLine();
-                                    if (checkYear(Int32.Parse(newYear)))
-                                    {
-                                        bookTitle.YearOfPublication = Int32.Parse(newYear);
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine("not valid year");
-                                    }
-                                    break;
-                                case "5":
-                                    Console.WriteLine("Enter Updated Summary.");
-                                    string newSummary = Console.ReadLine();
-                                    bookTitle.Summary = newSummary;
-                                    break;
-                                case "6":
-                                    Console.WriteLine("Updated Done :)");
-                                    exit = true;
-                                    break;
-                                default:
-                                    Console.WriteLine("Enter Valid Choice");
-                                    break;
-                            }
-                        }
+                        case "2":
+                            string newTitle = getValidTitle();
+                            bookToUpdate.Title = newTitle;
+                            break;
+                        case "3":
+                            Console.WriteLine("Enter new Genre.");
+                            var newGenre = GenreMenu();
+                            bookToUpdate.Genre = newGenre;
+                            break;
+                        case "4":
+                            Console.WriteLine("Enter new Year of Publication.");
+                            int newYear = GetValidYearInput();
+                            bookToUpdate.YearOfPublication= newYear;
 
-                        updateJsonFile();
-                        SaveData();
-                        break;
+                            break;
+                        case "5":
+                            Console.WriteLine("Enter Updated Summary.");
+                            string newSummary = Console.ReadLine();
+                            bookToUpdate.Summary = newSummary;
+                            break;
+                        case "6":
+                            Console.WriteLine("Update Done :)");
+                            exit = true;
+                            break;
+                        default:
+                            Console.WriteLine("Enter Valid Choice");
+                            break;
                     }
                 }
+
+                updateJsonFile();
+                SaveData();
             }
-            if (found == false)
+            else
             {
-                    Console.WriteLine("Book not found");  
+                Console.WriteLine("................................");
+                Console.WriteLine("Book not found");
+                Console.WriteLine("................................");
             }
         }
 
@@ -232,30 +209,39 @@ namespace Project2
                     case "1":
                         Console.Write("Enter Author Name: ");
                         var searchAuthor = Console.ReadLine();
-                        Book searchBook = null;
-                        foreach (var bookTitle in booksList)
+                        Book foundBookByAuthor = null;
+                        foreach (var book in booksList)
                         {
-                            if (bookTitle.Author.Equals(searchAuthor, StringComparison.OrdinalIgnoreCase))
+                            if (book.Author.Equals(searchAuthor, StringComparison.OrdinalIgnoreCase))
                             {
-                                searchBook = bookTitle;
-                                bookTitle.toString();
+                                foundBookByAuthor = book;
+                                book.toString();
                             }
-
+                        }
+                        if (foundBookByAuthor == null)
+                        {
+                            Console.WriteLine("Book not found");
                         }
                         break;
+
                     case "2":
                         Console.Write("Enter Title Name: ");
                         var searchTitle = Console.ReadLine();
-                        Book searchsBook = null;
-                        foreach (var bookTitle in booksList)
+                        Book foundBookByTitle = null;
+                        foreach (var book in booksList)
                         {
-                            if (bookTitle.Title.Equals(searchTitle, StringComparison.OrdinalIgnoreCase))
+                            if (book.Title.Equals(searchTitle, StringComparison.OrdinalIgnoreCase))
                             {
-                                searchsBook = bookTitle;
-                                bookTitle.toString();
+                                foundBookByTitle = book;
+                                book.toString();
                             }
                         }
+                        if (foundBookByTitle == null)
+                        {
+                            Console.WriteLine("Book not found");
+                        }
                         break;
+
                     case "3":
                         exit = true;
                         break;
@@ -267,13 +253,15 @@ namespace Project2
             }
         }
 
+
         public void SaveData()
         {
             string filepath = @"C:\Users\Administrator\Desktop\Training\Training\Stage-2\Project2\Project2\Books.txt";
             using (StreamWriter writer = new StreamWriter(filepath))
             {
                 int i = 1;
-                writer.WriteLine("\n\n...............................................WELCOME TO SALWA's LIBRARY...............................................");
+                writer.WriteLine("--------------------------------------------------------------------------------------------------------------------");
+                writer.WriteLine("                                                  WELCOME TO SALWA's LIBRARY");
                 foreach (var book in booksList)
                 {
                     writer.WriteLine("--------------------------------------------------------------------------------------------------------------------");
@@ -282,7 +270,7 @@ namespace Project2
                     i++;
                     writer.WriteLine("Book's Author : " + book.Author);
                     writer.WriteLine("Title : " + book.Title);
-                    writer.WriteLine("Genre : " + book.SelectedGenre);
+                    writer.WriteLine("Genre : " + book.Genre);
                     writer.WriteLine("Year of Publication : " + book.YearOfPublication);
                     writer.WriteLine("Summary : " + book.Summary);
                 }
@@ -301,7 +289,6 @@ namespace Project2
                 {
                     string updatedJsonContent = JsonSerializer.Serialize(booksList, new JsonSerializerOptions { WriteIndented = true });
                     File.WriteAllText(jsonFilePath, updatedJsonContent);
-                    Console.WriteLine("New books have been added and saved to the JSON file.");
                 }
                 else
                 {
@@ -331,23 +318,23 @@ namespace Project2
         {
             Console.WriteLine("1] Search by Author Name.");
             Console.WriteLine("2] Search by Title Name.");
-            Console.WriteLine("6] Exit.");
+            Console.WriteLine("3] Exit.");
         }
 
         public static string GenreMenu()
         {
             Console.WriteLine("Available Genres:");
-            foreach (var genre in Genre)
+            foreach (var genre in GenreDic)
             {
                 Console.WriteLine($"{genre.Key}. {genre.Value}");
             }
             Console.Write("\nEnter the number corresponding to your desired genre: ");
             int selectedGenreKey;
-            while (!int.TryParse(Console.ReadLine(), out selectedGenreKey) || !Genre.ContainsKey(selectedGenreKey))
+            while (!int.TryParse(Console.ReadLine(), out selectedGenreKey) || !GenreDic.ContainsKey(selectedGenreKey))
             {
                 Console.Write("Invalid input. Please enter a valid number from the list : ");
             }
-            return Genre[selectedGenreKey];
+            return GenreDic[selectedGenreKey];
         }
 
         public static bool checkYear(int year)
@@ -359,6 +346,69 @@ namespace Project2
             else
                 return true;
 
+        }
+
+        public static int GetValidYearInput()
+        {
+            int bookYear = 0;
+            bool isValidYear = false;
+            int earliestYear = 1450;
+
+            while (!isValidYear)
+            {
+                Console.Write("Year of Publication: ");
+                string input = Console.ReadLine();
+
+                if (int.TryParse(input, out bookYear))
+                {
+                    if (bookYear >= earliestYear && bookYear <= DateTime.Now.Year)
+                    {
+                        isValidYear = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Not a valid year.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Not a valid year. Please enter a numeric value.");
+                }
+            }
+
+            return bookYear;
+        }
+        public static string getValidAuthor()
+        {
+            string bookAutohr;
+            do
+            {
+                Console.Write("Book's Author : ");
+                bookAutohr = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(bookAutohr) || bookAutohr.Any(char.IsDigit))
+                {
+                    Console.WriteLine("Write Valid Name");
+                }
+            }
+            while (string.IsNullOrWhiteSpace(bookAutohr) || bookAutohr.Any(char.IsDigit));
+
+            return bookAutohr;
+        }
+
+        public static string getValidTitle() {
+            string bookTitle;
+            do
+            {
+                Console.Write("Book's Title : ");
+                bookTitle = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(bookTitle))
+                {
+                    Console.WriteLine("Write Valid Title");
+                }
+            }
+            while (string.IsNullOrWhiteSpace(bookTitle));
+
+            return bookTitle;
         }
     }
 
