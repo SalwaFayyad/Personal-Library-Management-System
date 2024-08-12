@@ -1,51 +1,27 @@
 --------------------------------------------------------------------------------------------------------------------
                                                   WELCOME TO SALWA's LIBRARY
 --------------------------------------------------------------------------------------------------------------------
- Book [ 1 ]
+Title: To Kill a Mockingbird
+Author: Salwa
+Genre: Fiction
+Year of Publication: 1960
+Summary: A novel about the serious issues of rape and racial inequality.
 --------------------------------------------------------------------------------------------------------------------
-Book's Author : Salwa
-Title : To Kill a Mockingbird
-Genre : Fiction
-Year of Publication : 1960
-Summary : A novel about the serious issues of rape and racial inequality.
+Title: The Great Gatsby
+Author: F. Scott Fitzgerald
+Genre: Classic
+Year of Publication: 1925
+Summary: A novel that explores themes of decadence and excess in 1920s America.
 --------------------------------------------------------------------------------------------------------------------
- Book [ 2 ]
+Title: Pride and Prejudice
+Author: Jane Austen
+Genre: Romance
+Year of Publication: 1813
+Summary: A classic novel that deals with issues of class, marriage, and morality.
 --------------------------------------------------------------------------------------------------------------------
-Book's Author : Salwa
-Title : To Kill a Mockingbird
-Genre : Fiction
-Year of Publication : 1960
-Summary : A novel about the serious issues of rape and racial inequality.
+Title: The Catcher in the Rye
+Author: J.D. Salinger
+Genre: Fiction
+Year of Publication: 1951
+Summary: A novel that explores complex issues of identity, belonging, and alienation.
 --------------------------------------------------------------------------------------------------------------------
- Book [ 3 ]
---------------------------------------------------------------------------------------------------------------------
-Book's Author : George Orwell
-Title : 1984
-Genre : Dystopian
-Year of Publication : 1949
-Summary : A novel that presents a dystopian future under a totalitarian regime.
---------------------------------------------------------------------------------------------------------------------
- Book [ 4 ]
---------------------------------------------------------------------------------------------------------------------
-Book's Author : F. Scott Fitzgerald
-Title : The Great Gatsby
-Genre : Classic
-Year of Publication : 1925
-Summary : A novel that explores themes of decadence and excess in 1920s America.
---------------------------------------------------------------------------------------------------------------------
- Book [ 5 ]
---------------------------------------------------------------------------------------------------------------------
-Book's Author : Jane Austen
-Title : Pride and Prejudice
-Genre : Romance
-Year of Publication : 1813
-Summary : A classic novel that deals with issues of class, marriage, and morality.
---------------------------------------------------------------------------------------------------------------------
- Book [ 6 ]
---------------------------------------------------------------------------------------------------------------------
-Book's Author : J.D. Salinger
-Title : The Catcher in the Rye
-Genre : Fiction
-Year of Publication : 1951
-Summary : A novel that explores complex issues of identity, belonging, and alienation.
-
