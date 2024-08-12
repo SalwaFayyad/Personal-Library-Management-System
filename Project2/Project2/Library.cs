@@ -34,9 +34,9 @@ namespace Project2
             {
                 if (book.Author.Equals(bookAuthor, StringComparison.OrdinalIgnoreCase) && book.Title.Equals(bookTitle, StringComparison.OrdinalIgnoreCase))
                 {
-                    Console.WriteLine("................................");
+                    Console.WriteLine("--------------------------------------------------------");
                     Console.WriteLine("Can't add a new book with the same title and author name.");
-                    Console.WriteLine("................................");
+                    Console.WriteLine("--------------------------------------------------------");
 
                     return;
                 }
@@ -52,9 +52,10 @@ namespace Project2
             Book newBook = new Book(bookTitle, bookAuthor, bookGenre, bookYear, bookSummary);
             booksList.Add(newBook);
 
-            Console.WriteLine("................................");
+            Console.WriteLine("--------------------------------------------------------");
             Console.WriteLine("Book added successfully.");
-            Console.WriteLine("................................");
+            Console.WriteLine("--------------------------------------------------------");
+
             SaveFile();
         }
         public void ViewBooks()
@@ -85,7 +86,7 @@ namespace Project2
             {
                 Console.WriteLine("--" + bookTitle.Title);
             }
-            Console.WriteLine("................................");
+            Console.WriteLine("--------------------------------------------------------");
             Console.WriteLine("Which book do you want to update?");
 
             var titlebook = Console.ReadLine();
@@ -119,7 +120,7 @@ namespace Project2
                         case "4":
                             Console.WriteLine("Enter new Year of Publication.");
                             int newYear = getValidYearInput();
-                            bookToUpdate.YearOfPublication= newYear;
+                            bookToUpdate.YearOfPublication = newYear;
 
                             break;
                         case "5":
@@ -141,44 +142,60 @@ namespace Project2
             }
             else
             {
-                Console.WriteLine("................................");
+                Console.WriteLine("--------------------------------------------------------");
                 Console.WriteLine("Book not found");
-                Console.WriteLine("................................");
+                Console.WriteLine("--------------------------------------------------------");
             }
         }
         public void DeleteBook()
         {
-            Console.WriteLine("Deleting Book ... loading");
+            Console.WriteLine("Deleting Book... loading");
             int counter = 1;
-            Console.WriteLine(".....Total Books in the Library.....");
-            foreach (var bookTitle in booksList)
+
+            if (booksList.Count==0)
             {
-                Console.WriteLine(counter + ". " + bookTitle.Title);
+                Console.WriteLine("No Books in the Libray ");
+                return;
+            }
+            Console.WriteLine(".....Total Books in the Library.....");
+
+            foreach (var book in booksList)
+            {
+                Console.WriteLine(counter + ". " + book.Title);
                 counter++;
             }
-            Console.WriteLine("................................");
-            Console.WriteLine("Which book do you want to delete?");
-            var deletedBook = Console.ReadLine();
 
+            Console.WriteLine("--------------------------------------------------------");
+            Console.WriteLine("Which book do you want to delete?");
+            var deletedBookTitle = Console.ReadLine();
+
+            // Find all books with the matching title
+            var booksWithTitle = booksList.Where(b => b.Title.Equals(deletedBookTitle, StringComparison.OrdinalIgnoreCase)).ToList();
+
+            // If more than one book has the same title, ask for the author
             Book bookToRemove = null;
-            foreach (var bookTitle in booksList)
+            if (booksWithTitle.Count > 1)
             {
-                if (bookTitle.Title.Equals(deletedBook, StringComparison.OrdinalIgnoreCase))
-                {
-                    bookToRemove = bookTitle;
-                    break;
-                }
+                string author = getValidAuthor();
+                bookToRemove = booksWithTitle.FirstOrDefault(b => b.Author.Equals(author, StringComparison.OrdinalIgnoreCase));
+            }
+            else if (booksWithTitle.Count == 1)
+            {
+                bookToRemove = booksWithTitle.First(); 
             }
 
             if (bookToRemove != null)
             {
                 booksList.Remove(bookToRemove);
+                Console.WriteLine("--------------------------------------------------------");
                 Console.WriteLine("Book deleted successfully.");
+                Console.WriteLine("--------------------------------------------------------");
             }
             else
             {
                 Console.WriteLine("Book not found.");
             }
+
             SaveFile();
         }
         public void SearchBook()
@@ -215,8 +232,9 @@ namespace Project2
             string filePath = @"C:\Users\Administrator\Desktop\Training\Training\Stage-2\Project2\Project2\Books.txt";
             try
             {
-                string[] lines = File.ReadAllLines(filePath).Skip(3).ToArray();
+                string[] lines = File.ReadAllLines(filePath).Skip(3).ToArray(); 
                 Book currentBook = null;
+
                 foreach (var line in lines)
                 {
                     if (string.IsNullOrWhiteSpace(line))
@@ -224,36 +242,36 @@ namespace Project2
                         continue;
                     }
 
-                    if (line.StartsWith("Title:"))
+                    if (line.StartsWith("Title :"))
                     {
-
                         if (currentBook != null)
                         {
                             booksList.Add(currentBook);
                         }
                         currentBook = new Book();
-                        currentBook.Title = line.Substring("Title:".Length).Trim();
+                        currentBook.Title = line.Substring("Title :".Length).Trim();
                     }
                     else if (currentBook != null)
                     {
-                        if (line.StartsWith("Author:"))
+                        if (line.StartsWith("Author :"))
                         {
-                            currentBook.Author = line.Substring("Author:".Length).Trim();
+                            currentBook.Author = line.Substring("Author :".Length).Trim();
                         }
-                        else if (line.StartsWith("Genre:"))
+                        else if (line.StartsWith("Genre :"))
                         {
-                            currentBook.Genre = line.Substring("Genre:".Length).Trim();
+                            currentBook.Genre = line.Substring("Genre :".Length).Trim();
                         }
-                        else if (line.StartsWith("Year of Publication:"))
+                        else if (line.StartsWith("Year of Publication :"))
                         {
-                            currentBook.YearOfPublication = int.Parse(line.Substring("Year of Publication:".Length).Trim());
+                            currentBook.YearOfPublication = int.Parse(line.Substring("Year of Publication :".Length).Trim());
                         }
-                        else if (line.StartsWith("Summary:"))
+                        else if (line.StartsWith("Summary :"))
                         {
-                            currentBook.Summary = line.Substring("Summary:".Length).Trim();
+                            currentBook.Summary = line.Substring("Summary :".Length).Trim();
                         }
                     }
-                    else if (line.StartsWith("----") && currentBook != null)
+
+                    if (line.StartsWith("----") && currentBook != null)
                     {
                         booksList.Add(currentBook);
                         currentBook = null;
@@ -282,8 +300,8 @@ namespace Project2
 
                 foreach (var book in booksList)
                 {
-                    writer.WriteLine("Book's Author : " + book.Author);
                     writer.WriteLine("Title : " + book.Title);
+                    writer.WriteLine("Author : " + book.Author);
                     writer.WriteLine("Genre : " + book.Genre);
                     writer.WriteLine("Year of Publication : " + book.YearOfPublication);
                     writer.WriteLine("Summary : " + book.Summary);
@@ -302,6 +320,10 @@ namespace Project2
                 {
                     string updatedJsonContent = JsonSerializer.Serialize(booksList, new JsonSerializerOptions { WriteIndented = true });
                     File.WriteAllText(jsonFilePath, updatedJsonContent);
+                    Console.WriteLine("--------------------------------------------------------");
+                    Console.WriteLine("Data Exported to JSON File ");
+                    Console.WriteLine("--------------------------------------------------------");
+
                 }
                 else
                 {
@@ -390,7 +412,6 @@ namespace Project2
                 return true;
 
         }
-
         private int getValidYearInput()
         {
             int bookYear = 0;
@@ -437,7 +458,6 @@ namespace Project2
 
             return bookAutohr;
         }
-
         private string getValidTitle()
         {
             string bookTitle;
