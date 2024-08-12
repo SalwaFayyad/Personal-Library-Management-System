@@ -122,13 +122,47 @@ namespace Project2
                     {
                         case "1":
                             string newAuthor = getValidAuthor();
-                            bookToUpdate.Author = newAuthor;
+                            foreach (var book in booksList)
+                            {
+                                // Check if there's another book with the same title and author
+                                if (book.Author.Equals(newAuthor, StringComparison.OrdinalIgnoreCase) &&
+                                    book.Title.Equals(bookToUpdate.Title, StringComparison.OrdinalIgnoreCase) &&
+                                    !book.Equals(bookToUpdate))
+                                {
+                                    Console.WriteLine("--------------------------------------------------------");
+                                    Console.WriteLine("Can't update the book with this title as another book with the same title exists for this author.");
+                                    Console.WriteLine("--------------------------------------------------------"); break;
+                                }
+                                else
+                                {
+                                    bookToUpdate.Author = newAuthor;
+                                }
+                            }
+
                             break;
 
                         case "2":
                             string newTitle = getValidTitle();
-                            bookToUpdate.Title = newTitle;
+                            bool titleExists = false;
+
+                            foreach (var book in booksList)
+                            {
+                                // Check if there's another book with the same title and author
+                                if (book.Author.Equals(bookToUpdate.Author, StringComparison.OrdinalIgnoreCase) &&
+                                    book.Title.Equals(newTitle, StringComparison.OrdinalIgnoreCase) &&
+                                    !book.Equals(bookToUpdate))
+                                {
+                                    Console.WriteLine("--------------------------------------------------------");
+                                    Console.WriteLine("Can't update the book with this title as another book with the same title exists for this author.");
+                                    Console.WriteLine("--------------------------------------------------------"); break;
+                                }
+                                else
+                                {
+                                    bookToUpdate.Title = newTitle;
+                                }
+                            }
                             break;
+
                         case "3":
                             Console.WriteLine("Enter new Genre.");
                             var newGenre = GenreMenu();
