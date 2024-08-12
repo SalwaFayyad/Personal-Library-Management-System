@@ -13,15 +13,15 @@ Genre : Classic
 Year of Publication : 1925
 Summary : A novel that explores themes of decadence and excess in 1920s America.
 --------------------------------------------------------------------------------------------------------------------
-Title : Pride and Prejudice
-Author : Jane Austen
-Genre : Romance
-Year of Publication : 1813
-Summary : A classic novel that deals with issues of class, marriage, and morality.
---------------------------------------------------------------------------------------------------------------------
 Title : The Catcher in the Rye
 Author : J.D. Salinger
 Genre : Fiction
 Year of Publication : 1951
+Summary : A novel that explores complex issues of identity, belonging, and alienation.
+--------------------------------------------------------------------------------------------------------------------
+Title : sssss
+Author : ssssss
+Genre : Fiction
+Year of Publication : 2000
 Summary : A novel that explores complex issues of identity, belonging, and alienation.
 --------------------------------------------------------------------------------------------------------------------

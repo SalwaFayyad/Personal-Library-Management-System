@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using System.IO;
+using System.Reflection;
 namespace Project2
 {
     public class Library
@@ -81,16 +82,33 @@ namespace Project2
         }
         public void UpdateBook()
         {
+            if (booksList.Count == 0)
+            {
+                Console.WriteLine("No Books in the Libray ");
+                return;
+            }
             Console.WriteLine("------Updating Book ... loading");
             foreach (var bookTitle in booksList)
             {
                 Console.WriteLine("--" + bookTitle.Title);
             }
-            Console.WriteLine("--------------------------------------------------------");
             Console.WriteLine("Which book do you want to update?");
+            var ubdatedTitleBook = Console.ReadLine();
 
-            var titlebook = Console.ReadLine();
-            Book bookToUpdate = booksList.FirstOrDefault(b => b.Title.Equals(titlebook, StringComparison.OrdinalIgnoreCase));
+            // Find all books with the matching title
+            var booksWithTitle = booksList.Where(b => b.Title.Equals(ubdatedTitleBook, StringComparison.OrdinalIgnoreCase)).ToList();
+
+            // If more than one book has the same title, ask for the author
+            Book bookToUpdate = null;
+            if (booksWithTitle.Count > 1)
+            {
+                string author = getValidAuthor();
+                bookToUpdate = booksWithTitle.FirstOrDefault(b => b.Author.Equals(author, StringComparison.OrdinalIgnoreCase));
+            }
+            else if (booksWithTitle.Count == 1)
+            {
+                bookToUpdate = booksWithTitle.First();
+            }
 
             if (bookToUpdate != null)
             {
@@ -375,7 +393,7 @@ namespace Project2
             Book foundBookByAuthor = null;
             foreach (var book in booksList)
             {
-                if (book.Author.Equals(Author, StringComparison.OrdinalIgnoreCase))
+                if (book.Author.Contains(Author))
                 {
                     foundBookByAuthor = book;
                     book.toString();
@@ -391,7 +409,7 @@ namespace Project2
             Book foundBookByTitle = null;
             foreach (var book in booksList)
             {
-                if (book.Title.Equals(Title, StringComparison.OrdinalIgnoreCase))
+                if (book.Title.Contains(Title))
                 {
                     foundBookByTitle = book;
                     book.toString();

@@ -32,10 +32,11 @@
               "RelativeDocumentMoniker": "Project2\\Program.cs",
               "ToolTip": "C:\\Users\\Administrator\\Desktop\\Training\\Training\\Stage-2\\Project2\\Project2\\Project2\\Program.cs",
               "RelativeToolTip": "Project2\\Program.cs",
-              "ViewState": "AQIAAB8AAAAAAAAAAAAvwCsAAAAvAAAA",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAvwC8AAABCAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-08T07:42:26.419Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -45,7 +46,7 @@
               "RelativeDocumentMoniker": "Project2\\Library.cs",
               "ToolTip": "C:\\Users\\Administrator\\Desktop\\Training\\Training\\Stage-2\\Project2\\Project2\\Project2\\Library.cs",
               "RelativeToolTip": "Project2\\Library.cs",
-              "ViewState": "AQIAAK4AAAAAAAAAAAAwwLYAAAANAAAA",
+              "ViewState": "AQIAAI4BAAAAAAAAAAAswJ4BAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-08T13:30:27.131Z",
               "EditorCaption": ""
