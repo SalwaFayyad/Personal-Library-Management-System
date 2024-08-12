@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using System.IO;
-using System.Reflection;
 namespace Project2
 {
     public class Library
     {
         private List<Book> booksList;
 
-        private static Dictionary<int, string> GenreDic = new Dictionary<int, string>()
+        private  Dictionary<int, string> GenreDic = new Dictionary<int, string>()
         {
             {1, "Romantic"},
             {2, "Fantasy"},
@@ -374,17 +373,17 @@ namespace Project2
         private string GenreMenu()
         {
             Console.WriteLine("Available Genres:");
-            foreach (var genre in Library.GenreDic)
+            foreach (var genre in GenreDic)
             {
                 Console.WriteLine($"{genre.Key}. {genre.Value}");
             }
             Console.Write("\nEnter the number corresponding to your desired genre: ");
             int selectedGenreKey;
-            while (!int.TryParse(Console.ReadLine(), out selectedGenreKey) || !Library.GenreDic.ContainsKey(selectedGenreKey))
+            while (!int.TryParse(Console.ReadLine(), out selectedGenreKey) || !GenreDic.ContainsKey(selectedGenreKey))
             {
                 Console.Write("Invalid input. Please enter a valid number from the list : ");
             }
-            return Library.GenreDic[selectedGenreKey];
+            return GenreDic[selectedGenreKey];
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -460,7 +459,7 @@ namespace Project2
 
             return bookYear;
         }
-        public static string getValidAuthor()
+        private static string getValidAuthor()
         {
             string bookAutohr;
             do

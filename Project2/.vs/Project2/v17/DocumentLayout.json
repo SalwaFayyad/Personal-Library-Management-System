@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{96AD27F2-BA44-4C83-81F7-8C9FB3B1AF76}|Project2\\Project2.csproj|solutionrelative:project2\\library.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{96AD27F2-BA44-4C83-81F7-8C9FB3B1AF76}|Project2\\Project2.csproj|C:\\Users\\Administrator\\Desktop\\Training\\Training\\Stage-2\\Project2\\Project2\\project2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{96AD27F2-BA44-4C83-81F7-8C9FB3B1AF76}|Project2\\Project2.csproj|solutionrelative:project2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{96AD27F2-BA44-4C83-81F7-8C9FB3B1AF76}|Project2\\Project2.csproj|C:\\Users\\Administrator\\Desktop\\Training\\Training\\Stage-2\\Project2\\Project2\\project2\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{96AD27F2-BA44-4C83-81F7-8C9FB3B1AF76}|Project2\\Project2.csproj|solutionrelative:project2\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96AD27F2-BA44-4C83-81F7-8C9FB3B1AF76}|Project2\\Project2.csproj|C:\\Users\\Administrator\\Desktop\\Training\\Training\\Stage-2\\Project2\\Project2\\project2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96AD27F2-BA44-4C83-81F7-8C9FB3B1AF76}|Project2\\Project2.csproj|solutionrelative:project2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,13 +26,13 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Training\\Training\\Stage-2\\Project2\\Project2\\Project2\\Program.cs",
               "RelativeDocumentMoniker": "Project2\\Program.cs",
               "ToolTip": "C:\\Users\\Administrator\\Desktop\\Training\\Training\\Stage-2\\Project2\\Project2\\Project2\\Program.cs",
               "RelativeToolTip": "Project2\\Program.cs",
-              "ViewState": "AQIAAB8AAAAAAAAAAAAvwC8AAABCAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-08T07:42:26.419Z",
               "IsPinned": true,
@@ -46,7 +46,7 @@
               "RelativeDocumentMoniker": "Project2\\Library.cs",
               "ToolTip": "C:\\Users\\Administrator\\Desktop\\Training\\Training\\Stage-2\\Project2\\Project2\\Project2\\Library.cs",
               "RelativeToolTip": "Project2\\Library.cs",
-              "ViewState": "AQIAAI4BAAAAAAAAAAAswJ4BAAAkAAAA",
+              "ViewState": "AQIAABEAAAAAAAAAAAAiwNgAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-08T13:30:27.131Z",
               "EditorCaption": ""
@@ -57,15 +57,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Book.cs",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Training\\Training\\Stage-2\\Project2\\Project2\\Project2\\Book.cs",
               "RelativeDocumentMoniker": "Project2\\Book.cs",
               "ToolTip": "C:\\Users\\Administrator\\Desktop\\Training\\Training\\Stage-2\\Project2\\Project2\\Project2\\Book.cs",
               "RelativeToolTip": "Project2\\Book.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAiwBAAAAAIAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-08T07:49:18.564Z"
+              "WhenOpened": "2024-08-08T07:49:18.564Z",
+              "EditorCaption": ""
             }
           ]
         }
