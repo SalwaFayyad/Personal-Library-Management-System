@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Project2
 {
@@ -11,6 +10,10 @@ namespace Project2
         public int YearOfPublication { get; set; }
         public string Summary { get; set; }
 
+        public Book()
+        {
+
+        }
         public Book(string title, string author, string genre, int yearOfPublication, string summary = "")
         {
             Title = title;

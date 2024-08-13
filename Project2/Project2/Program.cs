@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using System.Text.Json;
+
 
 namespace Project2
 {
@@ -24,7 +18,7 @@ namespace Project2
                 switch (Console.ReadLine())
                 {
                     case "1":
-                        library.addBook();
+                        library.AddBook();
                         break;
                     case "2":
                         library.ViewBooks();
@@ -40,7 +34,8 @@ namespace Project2
                         library.SearchBook();
                         break;
                         case "6":
-                        library.SaveData();
+                        library.SaveFile();
+                        library.SaveJsonFile();
                         break;
                     case "7":
                         Console.WriteLine("...............Thank you Using our Library...............");
